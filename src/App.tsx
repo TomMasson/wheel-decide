@@ -1,34 +1,36 @@
-import "./App.css";
+import { Flex, ChakraProvider, Heading } from "@chakra-ui/react";
+import GameSelection from "./components/GameSelection";
+import GameList from "./components/GameList";
 import { useState } from "react";
-import Roue from "./components/Roue";
-import { Flex } from "@chakra-ui/react";
-import OptionsForm from "./components/OptionsForm";
-import { ChakraProvider } from "@chakra-ui/react";
-
-export interface Options {
-  id: number;
-  name: string;
-  checked: boolean;
-}
+import "./App.css";
+import WheelPage from "./Pages/WheelPage";
 
 function App() {
-  const [options, setOptions] = useState([
-    { id: 1, name: "Rocket League", checked: true },
-  ]);
-  const editOptions = (newOptions: Options[]) => {
-    setOptions(newOptions);
-  };
+  const [nbPlayers, setNbPlayers] = useState(0);
+  let content = <GameList nbPlayers={nbPlayers}>Lourd</GameList>;
+
+  if (nbPlayers === 0) {
+    content = (
+      <>
+        <Heading>Combien de joueurs ?</Heading>
+        <GameSelection editNbPlayers={(nb: number) => setNbPlayers(nb)} />
+      </>
+    );
+  }
 
   return (
     <ChakraProvider>
-      <Flex width={"100vw"} height={"100vh"} direction={"row"}>
-        <Flex w={"50%"} p={10} align={"center"}>
-          <Roue options={options} />
-        </Flex>
-        <Flex w={"50%"} p={10} align={"center"}>
-          <OptionsForm options={options} updateOptions={editOptions} />
-        </Flex>
-      </Flex>
+      {/* <Flex
+        width={"100vw"}
+        height={"100vh"}
+        direction={"column"}
+        justifyContent={"center"}
+        alignItems={"center"}
+        gap={"8rem"}
+      >
+        {content}
+      </Flex> */}
+      <WheelPage></WheelPage>
     </ChakraProvider>
   );
 }

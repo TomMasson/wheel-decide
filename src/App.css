@@ -1,10 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-}
-
-body {
-  background: #eaeaea;
+  background: #1e1e1e;
   color: #fff;
   font-size: 18px;
   font-family: "Exo 2", sans-serif;
@@ -12,17 +9,6 @@ body {
 
 a {
   color: #34495e;
-}
-
-/*WRAPPER*/
-#wrapper {
-  margin: 40px auto 0;
-  width: 266px;
-  position: relative;
-}
-
-#txt {
-  color: #eaeaea;
 }
 
 /* 

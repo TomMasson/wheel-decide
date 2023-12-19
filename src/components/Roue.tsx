@@ -1,16 +1,21 @@
-import { Options } from "../App";
-import WheelComponent from "react-wheel-of-prizes";
+import { Box } from "@chakra-ui/react";
+import { Options, defaultOptions } from "../App";
+import WheelComponent from "./../assets/WheelComponent";
 
 interface IRoue {
   options: Options[];
 }
 
 const Roue = ({ options }: IRoue) => {
-  const segments = options.map((input) => (input.checked ? input.name : false));
-  const refresh = segments;
+  let activeOptions = options.filter((input) => input.checked);
+
+  if (activeOptions.length === 0) {
+    activeOptions = defaultOptions;
+  }
+
+  const segments = activeOptions.map((input) => input.name);
 
   const segColors = [
-    "#F0CF50",
     "#815CD1",
     "#3DA5E0",
     "#34A24F",
@@ -19,18 +24,18 @@ const Roue = ({ options }: IRoue) => {
     "#FF9000",
   ];
 
-  const onFinished = (winner: any) => {
+  const onFinished = (winner: string) => {
     console.log(winner);
   };
 
   return (
     <>
-      {refresh && (
+      <Box border={"1px solid black"}>
         <WheelComponent
+          key={segments.toString()}
           segments={segments}
           segColors={segColors}
-          winningSegment="won 10"
-          onFinished={(winner) => onFinished(winner)}
+          onFinished={(winner: string) => onFinished(winner)}
           primaryColor="black"
           contrastColor="white"
           buttonText="Spin"
@@ -40,7 +45,7 @@ const Roue = ({ options }: IRoue) => {
           downDuration={1000}
           fontFamily="Arial"
         />
-      )}
+      </Box>
     </>
   );
 };

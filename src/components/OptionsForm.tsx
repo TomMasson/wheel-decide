@@ -4,10 +4,10 @@ import { Options } from "../App";
 
 interface IOptionsForm {
   options: Options[];
-  updateOptions: (newOptions: Options[]) => void;
+  setOptions: (newOptions: Options[]) => void;
 }
 
-const OptionsForm = ({ options, updateOptions }: IOptionsForm) => {
+const OptionsForm = ({ options, setOptions }: IOptionsForm) => {
   const [newOption, setNewOption] = useState({
     id: options[options.length - 1].id + 1,
     name: "",
@@ -15,14 +15,14 @@ const OptionsForm = ({ options, updateOptions }: IOptionsForm) => {
   });
 
   const editOption = (inputId: number, newData: Options) => {
-    updateOptions(
+    setOptions(
       options.map((option) => (option.id === inputId ? newData : option))
     );
   };
 
   const addOption = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    updateOptions([newOption, ...options]);
+    setOptions([newOption, ...options]);
     setNewOption({
       id: newOption.id + 1,
       name: "",
