@@ -1,6 +1,6 @@
 import { Box } from "@chakra-ui/react";
-import { Options, defaultOptions } from "../App";
-import WheelComponent from "./../assets/WheelComponent";
+import WheelComponent from "../assets/WheelComponent";
+import { defaultOptions } from "../assets/DataExport";
 
 interface IRoue {
   options: Options[];

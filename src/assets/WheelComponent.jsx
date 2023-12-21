@@ -179,7 +179,7 @@ var WheelComponent = function WheelComponent(_ref) {
     ctx.font = "1em " + fontFamily;
 
     for (var i = 1; i <= len; i++) {
-      var angle = PI 2 * (i / len) + angleCurrent;
+      var angle = PI2 * (i / len) + angleCurrent;
       drawSegment(i - 1, lastAngle, angle);
       lastAngle = angle;
     }

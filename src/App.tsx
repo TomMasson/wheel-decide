@@ -20,7 +20,7 @@ function App() {
 
   return (
     <ChakraProvider>
-      {/* <Flex
+      <Flex
         width={"100vw"}
         height={"100vh"}
         direction={"column"}
@@ -29,8 +29,8 @@ function App() {
         gap={"8rem"}
       >
         {content}
-      </Flex> */}
-      <WheelPage></WheelPage>
+      </Flex>
+      {/* <WheelPage></WheelPage> */}
     </ChakraProvider>
   );
 }
