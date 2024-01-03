@@ -1,6 +1,6 @@
 import { Grid, GridItem, Image } from "@chakra-ui/react";
 import Card from "./Card";
-import { Game } from "../../assets/DataExport";
+import { Game } from "../../../assets/DataExport";
 interface IGameCard {
   game: Game;
   onClick: () => void;

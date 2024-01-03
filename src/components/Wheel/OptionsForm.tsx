@@ -1,6 +1,6 @@
 import { Input, Checkbox, Flex, Box, Heading } from "@chakra-ui/react";
 import { useState } from "react";
-import { Options } from "../App";
+import { Options } from "../../App";
 
 interface IOptionsForm {
   options: Options[];

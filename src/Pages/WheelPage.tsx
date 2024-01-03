@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Roue from "../components/Roue";
+import Roue from "../components/Wheel/Roue";
 import { Flex } from "@chakra-ui/react";
-import OptionsForm from "../components/OptionsForm";
+import OptionsForm from "../components/Wheel/OptionsForm";
 import { Options, defaultOptions } from "../assets/DataExport";
 
 const WheelPage = () => {

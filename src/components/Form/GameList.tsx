@@ -1,5 +1,5 @@
 import { Flex, Grid, GridItem, Heading } from "@chakra-ui/react";
-import { Games, defaultOptions } from "../assets/DataExport";
+import { Games, defaultOptions } from "../../assets/DataExport";
 import GameCard from "./Cards/GameCard";
 
 interface IGameList {
