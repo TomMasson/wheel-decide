@@ -1,19 +1,19 @@
 import { Flex, ChakraProvider, Heading } from "@chakra-ui/react";
-import GameSelection from "./components/GameSelection";
+import NbPlayers from "./components/NbPlayers";
 import GameList from "./components/GameList";
 import { useState } from "react";
 import "./App.css";
 import WheelPage from "./Pages/WheelPage";
 
 function App() {
-  const [nbPlayers, setNbPlayers] = useState(0);
-  let content = <GameList nbPlayers={nbPlayers}>Lourd</GameList>;
+  const [nbPlayers, setNbPlayers] = useState(3);
+  let content = <GameList nbPlayers={nbPlayers} />;
 
   if (nbPlayers === 0) {
     content = (
       <>
         <Heading>Combien de joueurs ?</Heading>
-        <GameSelection editNbPlayers={(nb: number) => setNbPlayers(nb)} />
+        <NbPlayers editNbPlayers={(nb: number) => setNbPlayers(nb)} />
       </>
     );
   }
@@ -27,6 +27,7 @@ function App() {
         justifyContent={"center"}
         alignItems={"center"}
         gap={"8rem"}
+        bg={"#1e1e1e"}
       >
         {content}
       </Flex>

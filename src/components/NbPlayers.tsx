@@ -1,16 +1,17 @@
 import { Flex } from "@chakra-ui/react";
-import InputCard from "./InputCard";
+import InputCard from "./Cards/InputCard";
 
-interface IGameSelection {
+interface INbPlayers {
   editNbPlayers: (nb: number) => void;
 }
-const GameSelection = ({ editNbPlayers }: IGameSelection) => {
+const NbPlayers = ({ editNbPlayers }: INbPlayers) => {
   const nbPlayers = [2, 3, 4, 5, 6];
   return (
     <Flex gap={"5rem"}>
-      {nbPlayers.map((text) => {
+      {nbPlayers.map((text, index) => {
         return (
           <InputCard
+            key={index}
             onClick={() => editNbPlayers(text)}
             text={text.toString()}
           />
@@ -20,4 +21,4 @@ const GameSelection = ({ editNbPlayers }: IGameSelection) => {
   );
 };
 
-export default GameSelection;
+export default NbPlayers;
